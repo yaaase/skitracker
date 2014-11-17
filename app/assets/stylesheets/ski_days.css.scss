@@ -6,8 +6,28 @@ body {
   font: 100% Helvetica, sans-serif;
 }
 
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: red;
+}
+
+a:active {
+  color: blue;
+}
+
 tr {
   text-align: center;
+}
+
+.link {
+  font-size: 75%;
 }
 
 .centered {

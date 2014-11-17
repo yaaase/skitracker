@@ -1,4 +1,4 @@
-<h1 class='centered'>Ski Days This Season</h1>
+<h1 class='centered'>Ski Days 2014/2015</h1>
 
 <div id='season_totals' class='centered'>
   <div>Total Days: <%= number_of_ski_days %></div>
@@ -19,16 +19,16 @@
       <td><%= ski_day.date.to_s %></td>
       <td><%= formatted_location(ski_day) %></td>
       <td><%= ski_day.vertical %></td>
-      <td><%= link_to 'view', ski_day_path(ski_day) %></td>
-      <td><%= link_to 'edit', edit_ski_day_path(ski_day) %></td>
-      <td><%= link_to 'delete', ski_day_path(ski_day), method: :delete, data: { confirm: 'are you sure?' } %></td>
+      <td class='link'><%= link_to 'View', ski_day_path(ski_day) %></td>
+      <td class='link'><%= link_to 'Edit', edit_ski_day_path(ski_day) %></td>
+      <td class='link'><%= link_to 'Delete', ski_day_path(ski_day), method: :delete, data: { confirm: 'are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
 
 <p/>
 
-<div class='centered'>
-  <%= link_to 'Enter a new ski day', new_ski_day_path %>
+<div class='centered link'>
+  <%= link_to 'New', new_ski_day_path %>
 </div>
 
