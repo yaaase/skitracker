@@ -1,0 +1,16 @@
+<h1>Ski Day</h1>
+
+<p>
+  <strong><%= "#{ formatted_location(@ski_day) }" %></strong>
+</p>
+
+<p>
+  <strong><%= "#{ @ski_day.date.to_s }" %></strong>
+</p>
+
+<p>
+  <strong>Vertical: <%= @ski_day.vertical %></strong>
+</p>
+
+<%= link_to 'back', ski_days_path %>
+<%= link_to 'edit', edit_ski_day_path(@ski_day) %>

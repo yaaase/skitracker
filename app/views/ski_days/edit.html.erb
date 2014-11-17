@@ -1,0 +1,7 @@
+<h1>Edit Ski Day</h1>
+
+<%= form_for :ski_day, url: ski_day_path(@ski_day), method: :patch do |f| %>
+  <%= render 'form', f: f %>
+<% end %>
+
+<%= link_to 'Back', ski_days_path %>

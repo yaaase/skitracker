@@ -1,0 +1,23 @@
+<% if @ski_day.errors.any? %>
+  <%= render 'errors' %>
+<% end %>
+
+<p>
+  <%= f.label :location %><br/>
+  <%= f.text_field :location %>
+</p>
+
+<p>
+  <%= f.label :date %><br/>
+  <%= f.date_select :date, order: [:day, :month, :year] %>
+</p>
+
+<p>
+  <%= f.label :vertical %><br/>
+  <%= f.text_field :vertical %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
