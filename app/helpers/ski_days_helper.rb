@@ -4,7 +4,7 @@ module SkiDaysHelper
   end
 
   def total_vertical
-    SkiDay.all.inject(0) { |total, day| total += day.vertical }
+    Grapher.total_vertical
   end
 
   def formatted_location(ski_day)

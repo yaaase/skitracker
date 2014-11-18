@@ -4,3 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+lib_task = Rake::Task["test:classes"]
+test_task = Rake::Task[:test]
+test_task.enhance { lib_task.invoke }
