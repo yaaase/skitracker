@@ -1,8 +1,7 @@
 class SkiDaysController < ApplicationController
-  before_filter :load_ski_day, only: [:edit, :update, :show, :destroy]
+  before_filter :load_ski_day, only: [:edit, :update, :destroy]
 
   def edit; end
-  def show; end
 
   def new
     @ski_day = SkiDay.new
@@ -17,7 +16,7 @@ class SkiDaysController < ApplicationController
     @ski_day = SkiDay.new(ski_day_params)
 
     if @ski_day.save
-      redirect_to @ski_day
+      redirect_to ski_days_path
     else
       render 'new'
     end
@@ -25,7 +24,7 @@ class SkiDaysController < ApplicationController
 
   def update
     if @ski_day.update(ski_day_params)
-      redirect_to @ski_day
+      redirect_to ski_days_path
     else
       render 'edit'
     end

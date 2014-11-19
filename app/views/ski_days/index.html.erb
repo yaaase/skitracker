@@ -21,7 +21,6 @@
       <td><%= ski_day.date.to_s %></td>
       <td><%= formatted_location(ski_day) %></td>
       <td id='vertical_<%= ski_day.id %>'><%= ski_day.vertical %></td>
-      <td class='link'><%= link_to 'View', ski_day_path(ski_day) %></td>
       <td class='link'><%= link_to 'Edit', edit_ski_day_path(ski_day) %></td>
       <td class='link'><%= link_to 'Delete', ski_day_path(ski_day), method: :delete, data: { confirm: 'are you sure?' } %></td>
     </tr>
