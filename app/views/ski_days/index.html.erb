@@ -16,7 +16,7 @@
     <th>Vertical:</th>
   </tr>
 
-  <% @ski_days.each do |ski_day| %>
+  <% @ski_days.sort_by { |day| day.date }.each do |ski_day| %>
     <tr>
       <td><%= ski_day.date.to_s %></td>
       <td><%= formatted_location(ski_day) %></td>
