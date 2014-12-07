@@ -10,7 +10,5 @@ gem 'jbuilder', '~> 2.0'
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'pry-plus'
-  gem 'pry-stack_explorer', '~> 0.4.9.1'
 end
 
