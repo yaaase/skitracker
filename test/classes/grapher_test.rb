@@ -49,17 +49,33 @@ class GrapherTest < ActiveSupport::TestCase
           Grapher.available_months[2014].must_equal ['October', 'November', 'December']
         end
 
-        describe 'chart data' do
-          it 'provides, finally, a list of month+year, num-of-days, vertical' do
+        describe 'charts' do
+          before do
             @day_four = SkiDay.create(location: 'Brighton', date: Date.parse('13 January 2015'), vertical: 100)
             @day_four = SkiDay.create(location: 'Brighton', date: Date.parse('19 January 2015'), vertical: 100)
             @day_five = SkiDay.create(location: 'Brighton', date: Date.parse('14 October 2014'), vertical: 1000)
-            Grapher.chart_data.must_equal([
-              ['October 2014', 1000],
-              ['November 2014', 500],
-              ['December 2014', 1000],
-              ['January 2015', 200]
-            ])
+          end
+
+          describe 'touring chart data' do
+            it 'provides, finally, a list of month+year, num-of-days, vertical' do
+              Grapher.touring_chart_data.must_equal([
+                                                    ['October 2014', 1000],
+                                                    ['November 2014', 500],
+                                                    ['December 2014', 1000],
+                                                    ['January 2015', 200]
+              ])
+            end
+          end
+
+          describe 'days chart data' do
+            it 'provides a list of month+year and number of days' do
+              Grapher.days_chart_data.must_equal([
+                                                 ['October 2014', 1],
+                                                 ['November 2014', 1],
+                                                 ['December 2014', 2],
+                                                 ['January 2015', 2]
+              ])
+            end
           end
         end
       end

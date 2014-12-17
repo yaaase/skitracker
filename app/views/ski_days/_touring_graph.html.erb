@@ -1,9 +1,9 @@
-<div id='graph_container'>
+<div class='graph_container'>
   <h3>Touring Vertical By Month</h3>
-  <canvas id='skiDaysGraph' width='400' height='400'></canvas>
+  <canvas id='touringDaysGraph' width='400' height='400'></canvas>
 
-  <div id='chart_values' style='display:none;'>
-    <% Grapher.chart_data.each do |ary| %>
+  <div id='touring_chart_values' style='display:none;'>
+    <% Grapher.touring_chart_data.each do |ary| %>
       <div id='entry'>
         <div class='month'><%= ary.first %></div>
         <div class='vertical'><%= ary.last %></div>

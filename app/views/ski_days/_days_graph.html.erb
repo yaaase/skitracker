@@ -1,0 +1,13 @@
+<div class='graph_container'>
+  <h3>Days Skied By Month</h3>
+  <canvas id='skiDaysGraph' width='400' height='400'></canvas>
+
+  <div id='days_chart_values' style='display:none;'>
+    <% Grapher.days_chart_data.each do |ary| %>
+      <div id='entry'>
+        <div class='month'><%= ary.first %></div>
+        <div class='days'><%= ary.last %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

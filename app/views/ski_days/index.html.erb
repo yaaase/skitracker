@@ -5,9 +5,10 @@
   <div>Total Touring Vertical: <%= total_vertical %></div>
 </div>
 
-<p/>
-<%= render 'graph' %>
-<p/>
+<div id='charts_wrapper'>
+<%= render 'touring_graph' %>
+<%= render 'days_graph' %>
+</div>
 
 <table class='centered_table'>
   <tr>

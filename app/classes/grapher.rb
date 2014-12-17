@@ -15,17 +15,25 @@ class Grapher
     sum_vertical(by_year_and_month[year][month])
   end
 
-  def self.chart_data
+  def self.touring_chart_data
+    generic_chart_data(->(collection) { sum_vertical(collection) })
+  end
+
+  def self.days_chart_data
+    generic_chart_data(->(collection) { collection.count })
+  end
+
+  private
+
+  def self.generic_chart_data(function)
     data = []
     available_months.each_pair do |year, months|
       months.each do |month|
-        data << ["#{ month } #{ year }", sum_vertical(by_year_and_month[year][month])]
+        data << ["#{ month } #{ year }", function.call(by_year_and_month[year][month])]
       end
     end
     data
   end
-
-  private
 
   def self.by_year_and_month
     years = {}
