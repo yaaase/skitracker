@@ -14,4 +14,3 @@ class SkiDaysHelperTest < ActionView::TestCase
     end
   end
 end
-

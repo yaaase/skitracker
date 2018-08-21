@@ -4,7 +4,7 @@ module SkiDaysHelper
   end
 
   def number_of_touring_days
-    SkiDay.all.select { |day| day.vertical > 0 }.count
+    SkiDay.all.select { |day| day.vertical.positive? }.count
   end
 
   def total_vertical
@@ -15,4 +15,3 @@ module SkiDaysHelper
     ski_day.location.split(/\s/).map(&:capitalize).join(' ')
   end
 end
-

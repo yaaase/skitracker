@@ -1,0 +1,19 @@
+inherit_from: ../.rubocop.yml
+
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'vendor/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 99
+
+Metrics/BlockLength:
+  Exclude:
+    - 'test/**/*.rb'

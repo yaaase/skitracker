@@ -1,5 +1,5 @@
 class SkiDaysController < ApplicationController
-  before_filter :load_ski_day, only: [:edit, :update, :destroy]
+  before_filter :load_ski_day, only: %i[edit update destroy]
 
   def edit; end
 
@@ -45,4 +45,3 @@ class SkiDaysController < ApplicationController
     params.require(:ski_day).permit(:location, :vertical, :date)
   end
 end
-

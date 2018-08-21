@@ -6,4 +6,3 @@ class SkiDay < ActiveRecord::Base
 
   before_save { |ski_day| ski_day.location.downcase }
 end
-

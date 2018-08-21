@@ -7,7 +7,7 @@ class Grapher
 
   def self.available_months
     by_year_and_month.each_with_object({}) do |ary, years|
-      years[ary.first] = ary.last.map { |month, list| month }.sort_by { |month| MONTHS[month] }
+      years[ary.first] = ary.last.map { |month, _list| month }.sort_by { |month| MONTHS[month] }
     end
   end
 
@@ -23,13 +23,11 @@ class Grapher
     generic_chart_data(->(collection) { collection.count })
   end
 
-  private
-
   def self.generic_chart_data(function)
     data = []
     available_months.each_pair do |year, months|
       months.each do |month|
-        data << ["#{ month } #{ year }", function.call(by_year_and_month[year][month])]
+        data << ["#{month} #{year}", function.call(by_year_and_month[year][month])]
       end
     end
     data
@@ -56,7 +54,6 @@ class Grapher
   end
 
   def self.sum_vertical(days)
-    days.inject(0) { |sum, day| sum += day.vertical }
+    days.inject(0) { |sum, day| sum + day.vertical }
   end
 end
-
