@@ -1,5 +1,5 @@
 class SkiDaysController < ApplicationController
-  before_filter :load_ski_day, only: %i[edit update destroy]
+  before_action :load_ski_day, only: %i[edit update destroy]
 
   def edit; end
 
