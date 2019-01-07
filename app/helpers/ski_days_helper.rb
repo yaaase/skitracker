@@ -11,7 +11,15 @@ module SkiDaysHelper
     Grapher.total_vertical
   end
 
+  def average_touring_vertical
+    (total_vertical / number_of_touring_days.to_f).round(2)
+  end
+
   def formatted_location(ski_day)
     ski_day.location.split(/\s/).map(&:capitalize).join(' ')
+  end
+
+  def days_by_ski
+    SkiDay.all.group(:skis).count.map { |k, v| [k, v] }.sort { |a| a.last }
   end
 end

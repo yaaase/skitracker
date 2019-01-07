@@ -4,5 +4,8 @@ class SkiDay < ActiveRecord::Base
 
   validates_numericality_of :vertical
 
-  before_save { |ski_day| ski_day.location.downcase }
+  before_save do |ski_day|
+    ski_day.location.downcase
+    ski_day.skis.downcase
+  end
 end

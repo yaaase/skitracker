@@ -4,6 +4,7 @@
   <div>Total Days: <%= number_of_ski_days %></div>
   <div>Total Touring Days: <%= number_of_touring_days %></div>
   <div>Total Touring Vertical: <%= total_vertical %></div>
+  <div>Average Touring Vertical: <%= average_touring_vertical %></div>
 </div>
 
 <div id='charts_wrapper'>
@@ -11,11 +12,21 @@
 <%= render 'days_graph' %>
 </div>
 
+<div class='centered'>
+  <h4>Days by Ski</h4>
+  <%- days_by_ski.each do |ary| %>
+    <div><%= "#{ary.first}: #{ary.last}" %></div>
+  <% end %>
+</div>
+
+<p/>
+
 <table class='centered_table'>
   <tr>
     <th>Date:</th>
     <th>Location:</th>
     <th>Vertical:</th>
+    <th>Skis:</th>
   </tr>
 
   <% @ski_days.sort_by(&:date).each do |ski_day| %>
@@ -23,6 +34,7 @@
       <td><%= ski_day.date.to_s %></td>
       <td><%= formatted_location(ski_day) %></td>
       <td id='vertical_<%= ski_day.id %>'><%= ski_day.vertical %></td>
+      <td id='skis'><%= ski_day.skis %></td>
       <td class='link'><%= link_to 'Edit', edit_ski_day_path(ski_day) %></td>
       <td class='link'><%= link_to 'Delete', ski_day_path(ski_day), method: :delete, data: { confirm: 'are you sure?' } %></td>
     </tr>
@@ -34,4 +46,3 @@
 <div class='centered link'>
   <%= link_to 'New', new_ski_day_path %>
 </div>
-

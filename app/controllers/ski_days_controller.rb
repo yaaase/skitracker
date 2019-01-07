@@ -42,6 +42,6 @@ class SkiDaysController < ApplicationController
   end
 
   def ski_day_params
-    params.require(:ski_day).permit(:location, :vertical, :date)
+    params.require(:ski_day).permit(:location, :vertical, :date, :skis)
   end
 end
