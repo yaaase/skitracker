@@ -48,6 +48,31 @@ var buildDaysGraph = function() {
   var graph = new Chart(ctx).Line(data, {});
 };
 
+var buildAveragesGraph = function() {
+  var average_chart_labels = [];
+  var average_chart_data = [];
+  $.each($('#average_chart_values').find('#entry .month'), function(idx, val) { average_chart_labels.push($(val).text()); });
+  $.each($('#average_chart_values').find('#entry .average'), function(idx, val) { average_chart_data.push($(val).text()); });
+  var data = {
+    labels: average_chart_labels,
+    datasets: [
+      {
+        label: 'Averages',
+        fillColor: "rgba(220,220,220,0.2)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: average_chart_data
+      }
+    ]
+  };
+  var ctx = $('#averageDaysGraph').get(0).getContext('2d');
+  var graph = new Chart(ctx).Line(data, {});
+};
+
+
 $(document).ready(function() {
   if ($('#touringDaysGraph').length > 0) {
     buildTouringGraph();
@@ -55,5 +80,9 @@ $(document).ready(function() {
   if ($('#skiDaysGraph').length > 0) {
     buildDaysGraph();
   }
+
+  //if ($('#averageDaysGraph').length > 0) {
+    buildAveragesGraph();
+  //}
 });
 

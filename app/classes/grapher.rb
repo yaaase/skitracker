@@ -23,6 +23,10 @@ class Grapher
     generic_chart_data(->(collection) { collection.count })
   end
 
+  def self.average_chart_data
+    generic_chart_data(->(collection) { daily_average(collection) })
+  end
+
   def self.generic_chart_data(function)
     data = []
     available_months.each_pair do |year, months|
@@ -55,5 +59,9 @@ class Grapher
 
   def self.sum_vertical(days)
     days.inject(0) { |sum, day| sum + day.vertical }
+  end
+
+  def self.daily_average(days)
+    (sum_vertical(days) / days.count.to_f).round(2)
   end
 end

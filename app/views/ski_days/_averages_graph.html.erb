@@ -1,0 +1,13 @@
+<div class='graph_container'>
+  <h3>Average Daily Vertical By Month</h3>
+  <canvas id='averageDaysGraph' width='400' height='400'></canvas>
+
+  <div id='average_chart_values' style='display:none;'>
+    <% Grapher.average_chart_data.each do |ary| %>
+      <div id='entry'>
+        <div class='month'><%= ary.first %></div>
+        <div class='average'><%= ary.last %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
