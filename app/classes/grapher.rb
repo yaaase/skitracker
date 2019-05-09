@@ -62,6 +62,6 @@ class Grapher
   end
 
   def self.daily_average(days)
-    (sum_vertical(days) / days.count.to_f).round(2)
+    (sum_vertical(days) / days.select { |d| d.vertical.positive? }.count.to_f).round(2)
   end
 end

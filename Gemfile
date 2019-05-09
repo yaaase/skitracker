@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.0'
+ruby '2.5.1'
 
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
